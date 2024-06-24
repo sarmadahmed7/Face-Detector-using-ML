@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+ <html class="no-js"> 
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Classifier &mdash;Image Classification Model</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="./dropzone.min.css">
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	</head>
+
+
+	<body>
+		<style>
+            :root {
+                --color1: #D62828;
+                --color2: #F77F00;
+                --color3: #003049;
+            }
+    
+            .preload {
+                justify-content: center;
+                align-items: center;
+                background-color: #9b9393; /* Set your background color */
+            }
+    
+            .loader {
+                width: 80px;
+                height: 80px;
+                display: grid;
+                place-items: center;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 1; /* Make the loader visible */
+                z-index: 1000; /* Set a high z-index to ensure it's above other content */
+                animation: animate 1.5s linear 0s 1 normal forwards; /* Animation duration adjusted */
+            }
+    
+            .loader span {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                box-sizing: border-box;
+            }
+    
+            .loader span:nth-child(1) {
+                border-top: 12px solid var(--color1);
+                border-right: 10px solid transparent;
+            }
+    
+            .loader span:nth-child(1):before {
+                content: '';
+                width: 11px;
+                height: 11px;
+                position: absolute;
+                top: -1px;
+                left: 85%;
+                border-radius: 50%;
+                background-color: var(--color1);
+            }
+    
+            .loader span:nth-child(2) {
+                border-top: 12px solid var(--color2);
+                border-right: 10px solid transparent;
+                transform: rotate(175deg); /* Use transform instead of rotate */
+            }
+    
+            .loader span:nth-child(2):before {
+                content: '';
+                width: 11px;
+                height: 11px;
+                position: absolute;
+                top: -1px;
+                left: 85%;
+                border-radius: 50%;
+                background-color: var(--color2);
+            }
+    
+            .loader span:nth-child(3) {
+                width: 50%;
+                height: 50%;
+                border-right: 6px solid transparent;
+                border-bottom: 7px solid var(--color3);
+                transform: rotate(90deg); /* Use transform instead of rotate */
+                animation: animate 0.8s linear 0s infinite reverse;
+            }
+    
+            .loader span:nth-child(3):before {
+                content: '';
+                width: 7px;
+                height: 7px;
+                position: absolute;
+                top: 86%;
+                left: 83%;
+                border-radius: 50%;
+                background-color: var(--color3);
+            }
+    
+            @keyframes animate {
+                0% {
+                    transform: rotate(0deg); /* Use transform for animation */
+                }
+                100% {
+                    transform: rotate(360deg); /* Use transform for animation */
+                }
+            }
+        </style>
+   <div class="preload">
+        <!-- Loader -->
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div></div>
+    
+        <script>
+            // Simulate hiding loader after 3 seconds
+            window.onload = function() {
+                setTimeout(function() {
+                    document.querySelector('.loader').style.display = 'none';
+                }, 1000); 
+            };
+        </script>
+
+	<div id="fh5co-offcanvas">
+		<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i> <span>Close</span></span></a>
+		<div class="fh5co-bio">
+			<figure>
+			</figure>
+			
+			</div>
+			<div class="fh5co-box">
+				<h3 class="heading">Search</h3>
+				<form action="#">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Type a keyword">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<header id="fh5co-header">
+		
+		<div class="container-fluid">
+
+			<div class="row">
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				<ul class="fh5co-social">
+					<li><a href="#"><i class="icon-twitter"></i></a></li>
+					<li><a href="#"><i class="icon-facebook"></i></a></li>
+					<li><a href="#"><i class="icon-instagram"></i></a></li>
+				</ul>
+				<div class="col-lg-12 col-md-12 text-center">
+					<h1 id="fh5co-logo"><a href="app.html">Drop box-</a>Image Classification Model</a></h1>
+				</div>
+
+			</div>
+		
+		</div>
+
+	</header>
+	<div class="container-fluid">
+		<div class="row fh5co-post-entry">
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_1.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Fahad Mustafa</a></h2>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_2.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Hania Amir</a></h2>
+			</article>
+			<div class="clearfix visible-xs-block"></div>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_3.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Saira Yousuf</a></h2>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_4.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Fawad Khan</a></h2>
+				
+			</article>
+			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_5.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Hamza Ali Abbasi</a></h2>
+				
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_6.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Bilal Abbas</a></h2>
+			</article>
+			<div class="clearfix visible-xs-block"></div>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_7.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Ayeza Khan</a></h2>
+				
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/pic_8.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Ahad Raza </a></h2>
+			</article>
+			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+
+
+
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_9.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</span>
+				<h2 class="fh5co-article-title"><a href="single.html">Sara Khan</a></h2>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_10.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Sajal Ali</a></h2>
+			</article>
+			<div class="clearfix visible-xs-block"></div>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_11.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Mahira Khan</a></h2>
+				
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_12.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Javed Sheikh</a></h2>
+			</article>
+			<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_13.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Iqra Aziz</a></h2>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_14.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Mehwish Hayat</a></h2>
+				
+			</article>
+			<div class="clearfix visible-xs-block"></div>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_15.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Danish Taimoor</a></h2>
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_16.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Mawra Hocaine</a></h2>
+				
+			</article>
+		
+		<div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+		<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+			<figure>
+					<a href="single.html"><img src="images/Pic_17.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Arsalan Ash</a></h2>
+				
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_18.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Asim Azhar</a></h2>
+			
+			</article>
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_19.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Babar Azam</a></h2>
+				
+			</article>
+			
+			<article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+				<figure>
+					<a href="single.html"><img src="images/Pic_20.jpg" alt="Image" class="img-responsive"></a>
+				</figure>
+				<span class="fh5co-meta"><a href="single.html">Pakistani Celebrity</a>, <a href="single.html"></a></span>
+				<h2 class="fh5co-article-title"><a href="single.html">Humayun Saeed</a></h2>
+			</article>
+			<div class="container">
+				<div class="glow">
+				<a href="app.html" class="btn btn1">Go to image processing</a>
+			</div>
+			  </div>
+			<div class="clearfix visible-xs-block"></div>
+		</div>
+		
+		<style>
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* button */
+.glow {
+  margin: 100px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+/* glow */
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:active {
+  color: #000;
+  font-weight: bold;
+}
+		</style>	  
+	</div>
+	
+ 
+     
+   
+
+       
+
+           
+	
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="./dropzone.min.js"></script>
+	<script src="index.js"></script>
+
+	</body>
+</html>
+
