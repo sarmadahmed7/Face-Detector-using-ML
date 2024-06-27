@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-    <title>Sports Person Classifier</title>
+    <title>Classifier &mdash;Image Classification Model</title>
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
     <meta property="og:title" content=""/>
@@ -21,11 +21,9 @@
     <link rel="stylesheet" href="./app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/icomoon.css">
+
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="index.css">
+
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/modernizr-2.6.2.min.js"></script>
 </head>
@@ -66,13 +64,9 @@
                 </div>
             </div>
         </header>
-
-    
      <li class="text-white"></li>
           </nav>
     </div>
-
-    
     <div class="container-fluid">
     <div class="container">
         <div class="slider-wrapper">
@@ -114,118 +108,38 @@
        
     
 <br><br> 
+    
+<div class="row">
+    <div class="col-sm-4">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="row">
-                    <div class="col-12 mx-auto">
-                        <form action="/file-upload" class="dropzone" id="dropzone">
-                            <div class="dz-message needsclick">
-                                <img src="./images/upload.png" width="50vw" height="50vw"><br>
-                                <span class="note needsclick">Drop files here or click to upload</span>
-                            </div>
-                        </form>
+            <div class="col-12 mx-auto">
+                <form action="/file-upload" class="dropzone" id="dropzone">
+                    <div class="dz-message needsclick">
+                        <img src="./images/upload.png" width="50vw" height="50vw"><br>
+                        <span class="note needsclick">Drop files here or click to upload</span>
                     </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-3 mx-auto">
-                        <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
-                    </div>
-                </div>
+                </form>
             </div>
-            
-            <div class="col-sm-8 error" id="error" >
-                <p>Can't classify image. Classifier was not able to detect face and two eyes properly</p>    
+        </div>
+        <div class="row mt-3">
+            <div class="col-3 mx-auto">
+                <button id="submitBtn" type="button" class="btn btn-success">Classify</button>
             </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-8 error" id="error" >
+        <p>Can't classify image. Classifier was not able to detect face and two eyes properly</p>    
+    </div>
 
             <div class="col-sm-4" id="resultHolder">
             </div>
             <div class="col-sm-4" id="divClassTable">
                 <table id="classTable">
-                        <tr>
-                            <th>celebrities</th>
-                            <th>Probability Score</th>
-                        </tr>
-                        <tr>
-                            <td>fahad mustafa</td>
-                            <td id="fahad mustafa"></td>
-                        </tr>
-                        <tr>
-                            <td>hania amir</td>
-                            <td id="hania amir"></td>
-                        </tr>
-                        <tr>
-                            <td>saira yousuf</td>
-                            <td id="saira yousuf"></td>
-                        </tr>
-                        <tr>
-                            <td>fawad khan</td>
-                            <td id="fawad khan"></td>
-                        </tr>
-                        <tr>
-                            <td>hamza ali abbasi</td>
-                            <td id="hamza ali abbasi"></td>
-                        </tr>
-                        <tr>
-                            <td>bilal abbas</td>
-                            <td id="bilal abbas"></td>
-                        </tr>
-                        <tr>
-                            <td>ayeza khan</td>
-                            <td id="ayeza khan"></td>
-                        </tr>
-                        <tr>
-                            <td>ahad raza</td>
-                            <td id="ahad raza"></td>
-                        </tr>
-                        <tr>
-                            <td>sara khan</td>
-                            <td id="sara khan"></td>
-                        </tr>
-                        <tr>
-                            <td>sajal ali</td>
-                            <td id="sajal ali"></td>
-                        </tr>
-                        <tr>
-                            <td>mahira khan</td>
-                            <td id="mahira khan"></td>
-                        </tr>
-                        <tr>
-                            <td>javed sheikh</td>
-                            <td id="javed sheikh"></td>
-                        </tr>
-                        <tr>
-                            <td>iqra aziz</td>
-                            <td id="iqra aziz"></td>
-                        </tr>
-                        <tr>
-                            <td>mehwish hayat</td>
-                            <td id="mehwish hayat"></td>
-                        </tr>
-                        <tr>
-                            <td>danish taimur</td>
-                            <td id="danish taimur"></td>
-                        </tr>
-                        <tr>
-                            <td>mawra hocane</td>
-                            <td id="mawra hocane"></td>
-                        </tr>
-                        <tr>
-                            <td>arsalan ash</td>
-                            <td id="arsalan ash"></td>
-                        </tr>
-                        <tr>
-                            <td>asim azhar</td>
-                            <td id="asim azhar"></td>
-                        </tr>
-                        <tr>
-                            <td>babar azam</td>
-                            <td id="babar azam"></td>
-                        </tr>
-                        <tr>
-                            <td>humayun saeed</td>
-                            <td id="humayun saeed"></td>
-                        </tr>
-        
+                    <tr>
+                        <th>celebrities</th>
+                        <th>Probability Score</th>
+                    </tr>
                 </table>
             </div>  
         </div>
@@ -241,37 +155,31 @@
     const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
     const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
     
-    // Handle scrollbar thumb drag
     scrollbarThumb.addEventListener("mousedown", (e) => {
         const startX = e.clientX;
         const thumbPosition = scrollbarThumb.offsetLeft;
         const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
         
-        // Update thumb position on mouse move
         const handleMouseMove = (e) => {
             const deltaX = e.clientX - startX;
             const newThumbPosition = thumbPosition + deltaX;
 
-            // Ensure the scrollbar thumb stays within bounds
             const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
             const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
             
-            scrollbarThumb.style.left = `${boundedPosition}px`;
+            scrollbarThumb.style.left = ${boundedPosition}px;
             imageList.scrollLeft = scrollPosition;
         }
 
-        // Remove event listeners on mouse up
         const handleMouseUp = () => {
             document.removeEventListener("mousemove", handleMouseMove);
             document.removeEventListener("mouseup", handleMouseUp);
         }
 
-        // Add event listeners for drag interaction
         document.addEventListener("mousemove", handleMouseMove);
         document.addEventListener("mouseup", handleMouseUp);
     });
 
-    // Slide images according to the slide button clicks
     slideButtons.forEach(button => {
         button.addEventListener("click", () => {
             const direction = button.id === "prev-slide" ? -1 : 1;
@@ -280,20 +188,17 @@
         });
     });
 
-     // Show or hide slide buttons based on scroll position
     const handleSlideButtons = () => {
         slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
         slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
     }
 
-    // Update scrollbar thumb position based on image scroll
     const updateScrollThumbPosition = () => {
         const scrollPosition = imageList.scrollLeft;
         const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-        scrollbarThumb.style.left = `${thumbPosition}px`;
+        scrollbarThumb.style.left = ${thumbPosition}px;
     }
 
-    // Call these two functions when image list scrolls
     imageList.addEventListener("scroll", () => {
         updateScrollThumbPosition();
         handleSlideButtons();
@@ -310,11 +215,4 @@ window.addEventListener("load", initSlider);
 <script src="./dropzone.min.js"></script>
 <script src="./app.js"></script>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.easing.1.3.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.waypoints.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="./dropzone.min.js"></script>
-	<script src="index.js"></script>
 </html>
